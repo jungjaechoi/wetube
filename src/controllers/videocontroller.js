@@ -33,8 +33,25 @@ export const getEdit = (req, res) => {
 };
 export const postEdit = (req, res) => {
   const {id} = req.params; // url로부터 params해서 id 가져오고
-  console.log(req.body); // form의 입력값을 body로 가져옴
-  videos[id - 1].title = req.body;
+  const { title } = req.body; // body로 입력값 받아옴
+  videos[id - 1].title = req.body.title;
   return res.redirect(`/videos/${id}`);
 };
 //export 로 수출 
+//videos[id-1]에 넘길 때 req.body로 넘기면 안되고 title로 넘겨야함
+// => req.body는 배열이므로 req.body.title이 맞는거였음
+
+export const getUpload = (req,res) => {
+    return res.render("upload", {pageTitle: `Upload Video`});
+};
+
+export const postUpload = (req,res) => {
+    const newVideo = {
+        title: req.body.title,
+        comments: 0,
+        views: 0,
+        id: videos.length + 1
+    };
+    videos.push(newVideo);
+    return res.redirect("/");
+};
