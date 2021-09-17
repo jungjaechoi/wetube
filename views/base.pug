@@ -1,0 +1,10 @@
+doctype html
+html(lang="ko")
+  head
+    title #{pageTitle} | Wetube
+  body
+    block content
+  include partials/footer.pug
+
+  // #{pageTitle}은 js가 아님 우리가 그냥 선언한 변수임 videocontroller에서 render선언 시 넘겨줌
+  // block 선언하면 그 부분만 ooo.pug 에서 따로 선언 가능 

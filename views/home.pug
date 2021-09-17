@@ -1,8 +1,5 @@
-doctype html
-html(lang="ko")
-  head
-    title= Wetube
-  body
-    h1 Welcome to Wetube
-    include partials/footer.pug
-    //include 사용하면 다른 파일 붙여넣기 가능
+extends base.pug
+
+
+block content 
+  h1 Home!
