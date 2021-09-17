@@ -1,10 +1,12 @@
 doctype html
 html(lang="ko")
-  head
-    title #{pageTitle} | Wetube
-  body
-    block content
-  include partials/footer.pug
-
-  // #{pageTitle}은 js가 아님 우리가 그냥 선언한 변수임 videocontroller에서 render선언 시 넘겨줌
-  // block 선언하면 그 부분만 ooo.pug 에서 따로 선언 가능 
+    head
+        title Wetube
+        link(rel="stylesheet" href="https://unpkg.com/mvp.css")
+    body
+        header 
+            h1=pageTitle 
+        main 
+            block content
+    include partials/footer.pug
+    //- include 사용하면 다른 파일 붙여넣기 가능   

@@ -1,9 +1,40 @@
-export const see = (req,res) => res.render("watch");
+let videos = [
+  {
+    title: "First video",
+    comments: 2,
+    views : 1,
+    id: 1
+  },
+  {
+    title: "Second video",
+    comments: 12,
+    views : 106,
+    id: 2
+  }, {
+    title: "Third video",
+    comments: 5,
+    views : 62,
+    id: 3
+  }
+];
 
-export const trending = (req,res) => res.render("home", { pageTitle: "Home" }); // pageTitle 변수 넘겨줌
-export const edit = (req,res) => res.render("edit");
-export const search = (req,res) => res.send('Search');
-export const upload = (req,res) => res.send('Upload');
-export const deleteVideo = (req,res) => res.send('Delete video');
-
-//export 로 수출
+export const trending = (req, res) => {
+  return res.render("home", { pageTitle: "Home", videos });
+};
+export const watch = (req, res) =>{
+  const {id} = req.params; // ES6 문법 const id = req.rarams.id와 동일
+  const video = videos[id - 1];
+  return res.render("watch", {pageTitle: `Watching: ${video.title}`, video});
+};
+export const getEdit = (req, res) => {
+  const {id} = req.params; 
+  const video = videos[id - 1];
+  return res.render("edit", {pageTitle: `Editing: ${video.title}`, video});
+};
+export const postEdit = (req, res) => {
+  const {id} = req.params; // url로부터 params해서 id 가져오고
+  console.log(req.body); // form의 입력값을 body로 가져옴
+  videos[id - 1].title = req.body;
+  return res.redirect(`/videos/${id}`);
+};
+//export 로 수출 
