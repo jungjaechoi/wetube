@@ -3,7 +3,7 @@ extends base.pug
 block content 
     h1 Change Title of video
     form(method = "POST")
-        input(name = "title", placeholder=`Editing: ${video.title}`,required)
+        input(name = "title", placeholder=`Editing: `,required)
         input(value="Save", type="submit")
 //- input에 name 안넣으면 req.body로 참조 불가능
 //- get은 유튜브 영상검색 할 때, post는 db를 바꾸는 data나 file을 보낼 때 사용
