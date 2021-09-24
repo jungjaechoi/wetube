@@ -2,7 +2,7 @@
 
 import express from "express";
 import { 
-    watch, 
+    watch,  
     getEdit, 
     postEdit, 
     getUpload,
@@ -11,12 +11,13 @@ import {
 
 const videoRouter = express.Router();
 
-videoRouter.get("/:id(\\d+)", watch);
-videoRouter.get("/:id(\\d+)/edit", getEdit);
-videoRouter.post("/:id(\\d+)/edit", postEdit);
-//- videoRouter.route("/:id(\\d+)/edit").get(getEdit).post(postEdit);
 videoRouter.get("/upload",getUpload);
 videoRouter.post("/upload",postUpload);
+videoRouter.get("/:id([0-9a-f]{24})", watch);
+videoRouter.get("/:id([0-9a-f]{24})/edit", getEdit);
+videoRouter.post("/:id([0-9a-f]{24})/edit", postEdit);
+//- videoRouter.route("/:id(\\d+)/edit").get(getEdit).post(postEdit);
+
 
 export default videoRouter;
 //default는 하나밖에 수출못함

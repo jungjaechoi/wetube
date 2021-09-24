@@ -1,11 +1,18 @@
 extends base.pug
 
 block content 
-    h1 Change Title of video
-    form(method = "POST")
-        input(name = "title", placeholder=`Editing: `,required)
-        input(value="Save", type="submit")
-//- input에 name 안넣으면 req.body로 참조 불가능
-//- get은 유튜브 영상검색 할 때, post는 db를 바꾸는 data나 file을 보낼 때 사용
-//- get을 사용하면 form에 있는 정보가 url에 들어간다
-//- action 없이 method="POST"만 넣으면 같은 url로 post명령을 보낸다
+    h4 Edit Video
+    form(method="POST")
+        input(name = "title", placeholder="Title", required, type="text", maxlength = 80)
+        input(name = "description", placeholder="Description", required, type="text", minlength = 20, value=video.description)
+        input(name = "hashtags", placeholder="Hashtags, separated by comma.", required, type="text", value = video.hashtags.join())
+        input(type="submit", value="Upload Video")
+
+//-     h1 Change Title of video
+//-     form(method = "POST")
+//-         input(name = "title", placeholder=`Editing: `,required)
+//-         input(value="Save", type="submit")
+//- //- input에 name 안넣으면 req.body로 참조 불가능
+//- //- get은 유튜브 영상검색 할 때, post는 db를 바꾸는 data나 file을 보낼 때 사용
+//- //- get을 사용하면 form에 있는 정보가 url에 들어간다
+//- //- action 없이 method="POST"만 넣으면 같은 url로 post명령을 보낸다

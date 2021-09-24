@@ -2,10 +2,9 @@ extends base.pug
 include mixins/video
 
 block content 
-  h2 dfdfdfdf 
+  h2 Your Videos
 
   each video in videos 
-    a(href="/videos/" + video.id)=video.title
     +video(video) 
   else
     li Sorry Nothing Found
