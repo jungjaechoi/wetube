@@ -5,6 +5,8 @@ block content
       p=video.description
       small=video.createdAt
    a(href=`${video.id}/edit`) Edit Video &rarr;
+   br
+   a(href=`${video.id}/delete`) Delete Video &rarr;
 //-  #{}안에 조건문도 넣을 수 있다.
 //-  root/a/b/c --> href="/edit"  => root/edit
 //-  root/a/b/c --> href="edit"  => root/a/b/edit
