@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon --exec npx babel-node src/init.js"
+    "dev": "nodemon",
+    "assets": "webpack --config webpack.config.js"
   },
   "author": "",
   "license": "ISC",
@@ -21,8 +21,13 @@
     "@babel/core": "^7.15.4",
     "@babel/node": "^7.15.4",
     "@babel/preset-env": "^7.15.4",
+    "css-loader": "^6.3.0",
+    "mini-css-extract-plugin": "^2.3.0",
     "nodemon": "^2.0.12",
-    "webpack": "^5.33.2",
+    "sass": "^1.42.1",
+    "sass-loader": "^12.1.0",
+    "style-loader": "^3.3.0",
+    "webpack": "^5.55.1",
     "webpack-cli": "^4.6.0"
   }
 }

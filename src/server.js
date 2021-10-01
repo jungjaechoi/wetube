@@ -7,7 +7,9 @@ import videoRouter from "./routers/videoRouter";
 const app = express();
 const logger = morgan("dev"); //morgan에서 dev툴 사용, middleware 모듈
 
-app.set("view engine", "pug");//pug 쓸 때 호출
+app.set("view engine", "pug");
+app.set("views", process.cwd() + "/src/views");
+app.use("/static", express.static("assets"));
 app.use(express.urlencoded({extended:true})); 
 app.use("/", rootRouter);
 app.use("/videos", videoRouter);
